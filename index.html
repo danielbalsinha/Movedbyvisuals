@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovedByVisuals | Video &amp; Photography</title>
+  <meta name="description" content="MovedByVisuals is a video and photography studio based in Lisbon, creating films and images for brands, artists and events.">
+  <link rel="icon" href="5_bg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/design.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- esconde o início até a animação de entrada arrancar (evita um "piscar") -->
+  <script>
+    document.documentElement.classList.add('intro', 'js');
+    setTimeout(function () { document.documentElement.classList.remove('intro'); }, 6000);
+  </script>
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="MovedByVisuals">
+      <img src="img/logo-m.png" alt="MovedByVisuals">
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <!-- Botões de idioma -->
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="pt">PT</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== INÍCIO (HERO) — fundo: bg_site.PNG ===================== -->
+    <section class="hero">
+      <!-- A tua foto no início (img/about-me.webp) -->
+      <img class="hero-portrait" src="img/about-me.webp" alt="" aria-hidden="true">
+      <div class="container">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Visual storytelling • Portraits • Events</p>
+        <h1 data-i18n-html="hero.title">We create stories<br>that <em>move</em> people.</h1>
+
+        <div class="hero-bottom">
+          <p class="lead" data-i18n="hero.lead">Films, photography and social content for brands, artists and events. Shot with intention, edited with care.</p>
+          <a class="button" href="#work" data-i18n="hero.cta">See our work</a>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      SHOWREEL — toca sozinho, em loop e sem som.
+      - video/showreel-web.mp4 e video/showreel-web.webm são versões leves do teu showreel.mp4 (40 MB).
+        O browser usa a que conseguir reproduzir.
+      - A capa (img/showreel-cover.jpg) é a primeira imagem do vídeo e aparece enquanto carrega.
+    -->
+    <div class="container">
+      <div class="showreel">
+        <video poster="img/showreel-cover.jpg" autoplay muted loop playsinline preload="auto">
+          <source src="video/showreel-web.mp4" type="video/mp4">
+          <source src="video/showreel-web.webm" type="video/webm">
+        </video>
+      </div>
+    </div>
+
+    <!-- ===================== SLIDESHOW DE FOTOS =====================
+      As fotos estão na pasta img/slideshow/ (01.webp a 15.webp), todas em formato 3:4.
+      Para trocar uma foto: põe a nova foto nessa pasta e muda o nome do ficheiro nas DUAS listas abaixo
+      (ex: "img/slideshow/04.webp" → "img/slideshow/minha-foto.jpg").
+      Usa fotos com no máximo ~1500 px de altura para o site não ficar pesado.
+      Para acrescentar, copia uma linha <img> nas DUAS listas (a segunda é a cópia que faz o loop sem falhas).
+    -->
+    <section class="slideshow" id="work" aria-label="Photo gallery">
+      <div class="slideshow-track">
+        <div class="slideshow-group">
+          <img src="img/slideshow/01.webp" alt="Porsche wheel detail">
+          <img src="img/slideshow/02.webp" alt="Portrait of a woman against a stone wall">
+          <img src="img/slideshow/03.webp" alt="Black and white low-angle portrait with sneakers">
+          <img src="img/slideshow/11.webp" alt="Healthcare professionals at work">
+          <img src="img/slideshow/05.webp" alt="BMW parked among pine trees">
+          <img src="img/slideshow/12.webp" alt="Athlete portrait on a running track">
+          <img src="img/slideshow/04.webp" alt="Handmade macramé bag – product shoot">
+          <img src="img/slideshow/07.webp" alt="Formula Student race car">
+          <img src="img/slideshow/13.webp" alt="Carnival portrait">
+          <img src="img/slideshow/09.webp" alt="Volkswagen Golf GTI">
+          <img src="img/slideshow/06.webp" alt="Portrait at sunset by the river">
+          <img src="img/slideshow/14.webp" alt="Concert stage lights">
+          <img src="img/slideshow/08.webp" alt="DJ performing at an event">
+          <img src="img/slideshow/10.webp" alt="Beach portrait with macramé bag">
+          <img src="img/slideshow/15.webp" alt="Wedding rings detail">
+        </div>
+        <div class="slideshow-group" aria-hidden="true">
+          <img src="img/slideshow/01.webp" alt="">
+          <img src="img/slideshow/02.webp" alt="">
+          <img src="img/slideshow/03.webp" alt="">
+          <img src="img/slideshow/11.webp" alt="">
+          <img src="img/slideshow/05.webp" alt="">
+          <img src="img/slideshow/12.webp" alt="">
+          <img src="img/slideshow/04.webp" alt="">
+          <img src="img/slideshow/07.webp" alt="">
+          <img src="img/slideshow/13.webp" alt="">
+          <img src="img/slideshow/09.webp" alt="">
+          <img src="img/slideshow/06.webp" alt="">
+          <img src="img/slideshow/14.webp" alt="">
+          <img src="img/slideshow/08.webp" alt="">
+          <img src="img/slideshow/10.webp" alt="">
+          <img src="img/slideshow/15.webp" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVIÇOS =====================
+      Cada serviço é um bloco <details> ... </details>.
+      Para acrescentar um, copia um bloco inteiro e muda o número, o título e o texto.
+    -->
+    <section class="services container" id="services">
+      <p class="eyebrow" data-i18n="services.eyebrow">What we do</p>
+      <h2 data-i18n="services.title">Services</h2>
+
+      <div class="service-list">
+
+        <details class="service">
+          <summary>
+            <span class="num">01</span>
+            <span class="service-title" data-i18n="s1.title">Social Media Content</span>
+            <span class="price-tag" data-i18n="s1.price">Monthly subscription</span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="service-body">
+            <p data-i18n="s1.text">Short-form videos and photo sets made to stop the scroll. Planned around your brand and ready for Instagram, TikTok and Reels.</p>
+            <ul>
+              <li data-i18n="s1.li1">Monthly content packs</li>
+              <li data-i18n="s1.li2">Reels &amp; TikToks (vertical 9:16)</li>
+              <li data-i18n="s1.li3">Behind-the-scenes and stories</li>
+              <li data-i18n="s1.li4">Editing, captions and colour</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="service">
+          <summary>
+            <span class="num">02</span>
+            <span class="service-title" data-i18n="s2.title">Video Production</span>
+            <span class="price-tag" data-i18n="s2.price">Per project</span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="service-body">
+            <p data-i18n="s2.text">From idea to final cut. Brand films, music videos and commercials with a cinematic look.</p>
+            <ul>
+              <li data-i18n="s2.li1">Concept, script and storyboard</li>
+              <li data-i18n="s2.li2">Filming with professional gear</li>
+              <li data-i18n="s2.li3">Editing, sound and colour grading</li>
+              <li data-i18n="s2.li4">Versions for web and social</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="service">
+          <summary>
+            <span class="num">03</span>
+            <span class="service-title" data-i18n="s3.title">Photography</span>
+            <span class="price-tag" data-i18n="s3.price">Per project</span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="service-body">
+            <p data-i18n="s3.text">Portraits, product and editorial photography with natural light and a timeless edit.</p>
+            <ul>
+              <li data-i18n="s3.li1">Portrait &amp; personal branding sessions</li>
+              <li data-i18n="s3.li2">Product and e-commerce photos</li>
+              <li data-i18n="s3.li3">Editorial and lookbooks</li>
+              <li data-i18n="s3.li4">Retouched, high-resolution delivery</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="service">
+          <summary>
+            <span class="num">04</span>
+            <span class="service-title" data-i18n="s4.title">Events &amp; Aftermovies</span>
+            <span class="price-tag" data-i18n="s4.price">Per project</span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="service-body">
+            <p data-i18n="s4.text">Weddings, parties, concerts and corporate events, covered with photo and video so nothing gets lost.</p>
+            <ul>
+              <li data-i18n="s4.li1">Full-day photo and video coverage</li>
+              <li data-i18n="s4.li2">Aftermovie (1–3 min) + social teaser</li>
+              <li data-i18n="s4.li3">Fast preview delivery in 48h</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="service">
+          <summary>
+            <span class="num">05</span>
+            <span class="service-title" data-i18n="s5.title">Websites</span>
+            <span class="price-tag" data-i18n="s5.price">Per project</span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="service-body">
+            <p data-i18n="s5.text">Simple, fast and beautiful websites that show your work at its best, built with your own photos and videos.</p>
+            <ul>
+              <li data-i18n="s5.li1">Portfolio and business websites</li>
+              <li data-i18n="s5.li2">Design adapted to mobile and desktop</li>
+              <li data-i18n="s5.li3">Photo and video content included</li>
+              <li data-i18n="s5.li4">Contact form and social links</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="services-cta">
+        <p data-i18n="services.ctaText">Ready to start?</p>
+        <a class="button" href="#contact" data-i18n="services.cta">Let’s talk</a>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE =====================
+      A foto está em img/about-arms.webp
+    -->
+    <section class="about container" id="about">
+      <div class="about-text">
+        <p class="eyebrow reveal" data-i18n="about.eyebrow">About me</p>
+        <h2 class="reveal" data-i18n="about.title">Hi, I’m Daniel Nunes.</h2>
+        <p class="big reveal" data-i18n="about.text1">I studied Micro and Nanotechnology Engineering, but somewhere between the lab and the lecture halls I picked up a camera and never put it down.</p>
+        <p class="reveal" data-i18n="about.text2">What started as a hobby became MovedByVisuals: a project where I bring an engineer’s eye for detail to every frame, from cars to portraits, brands and events. Based in Lisbon, available for projects in Portugal and abroad.</p>
+      </div>
+      <div class="about-photo reveal reveal--photo">
+        <img src="img/about-arms.webp" alt="Daniel Nunes, photographer and videographer behind MovedByVisuals" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO =====================
+      O formulário envia as mensagens através do Web3Forms (chave em js/main.js: WEB3FORMS_KEY).
+    -->
+    <section class="contact-section" id="contact">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 data-i18n="contact.title">Let’s create something meaningful together.</h2>
+          <ul class="contact-list">
+            <li>Email: movedbyvisuals@gmail.com</li>
+            <li>
+              <a class="ig-inline" href="https://www.instagram.com/movedbyvisuals/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" class="dot"/></svg>
+                <span>@movedbyvisuals</span>
+              </a>
+            </li>
+            <li data-i18n="contact.based">Based in Lisbon, available worldwide</li>
+          </ul>
+        </div>
+        <div class="contact-right">
+        <!-- botão para quem prefere marcar logo uma reunião -->
+        <button type="button" class="book-link" data-book-open data-i18n="book.link">Shall we book a meeting? Pick a time</button>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="form.name" required>
+          <input type="email" name="email" placeholder="Your email" data-i18n-placeholder="form.email" required>
+
+          <!-- Listas de escolha: para mudar as opções, edita as linhas <option> (e as traduções em js/lang.js) -->
+          <select name="service" required>
+            <option value="" disabled selected data-i18n="form.service">What do you need?</option>
+            <option value="Social media content (monthly)" data-i18n="svc.social">Social media content (monthly subscription)</option>
+            <option value="Video production" data-i18n="svc.video">Video production</option>
+            <option value="Photography" data-i18n="svc.photo">Photography</option>
+            <option value="Event / aftermovie" data-i18n="svc.event">Event / aftermovie</option>
+            <option value="Website" data-i18n="svc.web">Website</option>
+            <option value="Other" data-i18n="svc.other">Other</option>
+          </select>
+          <div class="form-row">
+            <select name="timing" required>
+              <option value="" disabled selected data-i18n="form.timing">When do you need it?</option>
+            <option value="As soon as possible" data-i18n="when.asap">As soon as possible</option>
+            <option value="Within 2 weeks" data-i18n="when.2w">Within 2 weeks</option>
+            <option value="Within a month" data-i18n="when.1m">Within a month</option>
+            <option value="In 1–3 months" data-i18n="when.3m">In 1–3 months</option>
+            <option value="Flexible / not sure yet" data-i18n="when.flex">Flexible / not sure yet</option>
+            </select>
+            <select name="budget">
+              <option value="" selected data-i18n="form.budget">Budget (optional)</option>
+            <option value="Under 250€" data-i18n="budget.b1">Under 250€</option>
+            <option value="250€ – 500€" data-i18n="budget.b2">250€ – 500€</option>
+            <option value="500€ – 1000€" data-i18n="budget.b3">500€ – 1000€</option>
+            <option value="Over 1000€" data-i18n="budget.b4">Over 1000€</option>
+            <option value="Not sure yet" data-i18n="budget.b5">Not sure yet</option>
+            </select>
+          </div>
+          <textarea name="message" placeholder="Tell me about your project" data-i18n-placeholder="form.message" required></textarea>
+          <!-- campo escondido contra spam: não mexer -->
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" data-i18n="form.send">Send Inquiry</button>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </form>
+        </div>
+
+        <!--
+          MARCAÇÃO DE REUNIÕES (Cal.com)
+          Aparece depois de enviar o formulário, ou ao clicar em "Prefiro marcar já uma reunião".
+          O link da tua página está em js/booking.js (CAL_LINK).
+        -->
+        <div class="booking" id="booking" hidden>
+          <div class="booking-head">
+            <div>
+              <p class="eyebrow" data-i18n="book.eyebrow">Book a meeting</p>
+              <h3 class="booking-title"></h3>
+              <p class="booking-text" data-i18n="book.text">Pick the day and time that suits you best. You'll get the confirmation and the meeting link by email.</p>
+            </div>
+            <button type="button" class="booking-back" data-book-close data-i18n="book.back">Back to the form</button>
+          </div>
+          <div class="booking-cal" id="booking-cal"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> MovedByVisuals</p>
+    <p data-i18n="footer.place">Lisbon, Portugal</p>
+  </footer>
+
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/select.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/intro.js"></script>
+</body>
+</html>

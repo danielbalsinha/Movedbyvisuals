@@ -1,0 +1,76 @@
+/*
+  CORES E LETRAS DO SITE
+  Muda aqui para alterar o aspeto de todo o site de uma vez.
+*/
+:root {
+  --bg: #0c0c0d;          /* fundo */
+  --surface: #161618;     /* fundo dos cartões */
+  --text: #f2efe9;        /* texto principal */
+  --muted: #8f8a83;       /* texto secundário */
+  --line: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.16);
+  --accent: #ffb347;        /* cor de destaque (laranja) */
+  --accent-strong: #ff8f00; /* laranja mais forte (botão ao passar o rato) */
+
+  --font: "Manrope", system-ui, sans-serif;
+  --font-accent: "Instrument Serif", Georgia, serif;
+
+  --max-width: 1280px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: #111;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

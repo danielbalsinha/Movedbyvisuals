@@ -1,0 +1,1049 @@
+/* ---------- Base de layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+section {
+  padding-top: clamp(4rem, 10vw, 8rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Pequeno texto a laranja por cima dos títulos */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: var(--accent);
+}
+
+/* ---------- Cabeçalho ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem var(--gutter);
+  background: rgba(12, 12, 13, 0.35);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+/* Ícone do Instagram */
+.ig-link,
+.ig-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.ig-link:hover,
+.ig-inline:hover {
+  color: var(--accent);
+}
+
+.ig-link svg,
+.ig-inline svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.ig-link svg .dot,
+.ig-inline svg .dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Botões PT / EN */
+.lang-switch {
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.lang-switch button {
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.2s, background 0.2s;
+}
+
+.lang-switch button:hover {
+  color: var(--text);
+}
+
+.lang-switch button.is-active {
+  background: var(--accent);
+  color: #111;
+}
+
+/* ---------- Hero (com o bg_site.PNG de fundo) ---------- */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-start; /* texto preso ao topo: não mexe ao trocar PT/EN */
+  padding: clamp(9rem, 24vh, 15rem) 0 6rem;
+  background:
+    linear-gradient(to bottom, rgba(12, 12, 13, 0) 65%, var(--bg) 100%),
+    url("../bg_site.PNG") center / cover no-repeat;
+}
+
+/* a tua foto no início, à direita, por trás do texto */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-portrait {
+  position: absolute;
+  /* centrada por baixo do botão "Ver trabalho" (o botão fica por cima do peito) */
+  /* à direita: a cara fica livre do título; o botão fica por cima do desfocado */
+  right: -10vw;
+  bottom: 0;
+  height: 80%;
+  width: auto;
+  max-width: none;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 1.4s ease, filter 1.4s ease;
+}
+
+.intro .hero-portrait {
+  opacity: 0;
+  filter: blur(16px);
+}
+
+.intro .hero-portrait.is-in {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.hero h1 {
+  margin: 0.5rem 0 2rem;
+  font-size: clamp(2.6rem, 8.5vw, 7.5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.hero h1 em {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.hero-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: var(--muted);
+}
+
+.showreel {
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.showreel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Slideshow de fotos (roda da direita para a esquerda) ---------- */
+.slideshow {
+  overflow: hidden;
+  padding-top: clamp(3rem, 7vw, 5rem);
+}
+
+.slideshow-track {
+  display: flex;
+  width: max-content;
+  animation: slide 100s linear infinite; /* mais segundos = mais lento */
+}
+
+.slideshow:hover .slideshow-track {
+  animation-play-state: paused;
+}
+
+.slideshow-group {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.slideshow-group img {
+  height: clamp(280px, 38vw, 520px);
+  width: auto;
+  aspect-ratio: 3 / 4; /* todas as fotos em formato 3:4 */
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideshow-track { animation-duration: 200s; }
+}
+
+/* ---------- Serviços (abrir/fechar com o +) ---------- */
+.service-list {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.service {
+  border-bottom: 1px solid var(--line);
+}
+
+.service summary {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem) 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.service summary::-webkit-details-marker {
+  display: none;
+}
+
+.service .num {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.service-title {
+  font-size: clamp(1.5rem, 4.2vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  transition: color 0.2s;
+}
+
+.service summary:hover .service-title,
+.service[open] .service-title {
+  color: var(--accent);
+}
+
+/* etiqueta "Subscrição mensal" / "Por projeto" */
+.price-tag {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.service[open] .price-tag {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* o "+" é desenhado com duas linhas; ao abrir roda e fica "×" */
+.plus {
+  position: relative;
+  width: clamp(2.4rem, 4vw, 3rem);
+  height: clamp(2.4rem, 4vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: transform 0.3s, background 0.2s, border-color 0.2s;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  height: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.service summary:hover .plus {
+  border-color: var(--accent);
+}
+
+.service[open] .plus {
+  transform: rotate(45deg);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #111;
+}
+
+.service-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 3rem;
+  padding: 0 0 2.2rem 4.5rem;
+  color: var(--muted);
+  animation: fade-in 0.35s ease;
+}
+
+.service-body ul {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.service-body li {
+  padding-left: 1.2rem;
+  position: relative;
+  color: var(--text);
+}
+
+.service-body li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.68em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.services-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.services-cta p {
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+}
+
+/* ---------- Sobre (texto à esquerda, foto à direita) ---------- */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-text {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  color: var(--muted);
+}
+
+.about-text .eyebrow {
+  margin-bottom: 0;
+}
+
+.about-text h2 {
+  color: var(--text);
+}
+
+.about-text .big {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.about-photo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: min(78vh, 680px);
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* ---------- Contacto (igual à versão anterior) ---------- */
+.contact-section {
+  padding: 6rem var(--gutter);
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  /* mesma largura que as outras secções, para ficar tudo alinhado */
+  max-width: calc(var(--max-width) - 2 * var(--gutter));
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  padding: 1.4rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(18px);
+}
+
+.contact-card h2 {
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.contact-copy,
+.contact-list {
+  color: var(--muted);
+}
+
+.contact-list {
+  list-style: none;
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b7ada0;
+  transition: color 0.2s;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder,
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23c9bcaf' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+/* lista ainda por escolher fica com a cor do placeholder */
+select:invalid,
+select.is-empty {
+  color: #b7ada0;
+}
+
+select option {
+  background: #1a1a1c;
+  color: var(--text);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+form button {
+  border: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  background: var(--accent-strong);
+}
+
+/* campo anti-spam escondido */
+.honey {
+  display: none;
+}
+
+form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.form-message {
+  min-height: 1.2rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+/* ---------- Rodapé ---------- */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Telemóvel e tablet ---------- */
+@media (max-width: 840px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .service summary {
+    grid-template-columns: 2.2rem 1fr auto;
+    row-gap: 0.6rem;
+  }
+
+  .service .price-tag {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .service .plus {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .service-body {
+    grid-template-columns: 1fr;
+    padding-left: 3.2rem;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 5rem 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hero {
+    padding-top: 9rem;
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-portrait {
+    height: 46%;
+    left: auto;
+    translate: none;
+    right: -12%;
+  }
+
+  /* reserva sempre 3 linhas para o título, para o texto não mexer ao trocar PT/EN */
+  .hero h1 {
+    min-height: 2.94em;
+  }
+
+  .hero .lead {
+    min-height: 6.4em; /* espaço para 4 linhas */
+  }
+
+  .brand span {
+    font-size: 0.95rem;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1rem;
+  }
+}
+
+/* ---------- Animação de entrada do início ---------- */
+
+/* fade + blur (frase laranja, texto de baixo e botão) */
+.intro .hero .eyebrow,
+.intro .hero .lead,
+.intro .hero .button {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(10px);
+}
+
+.hero .eyebrow,
+.hero .lead,
+.hero .button {
+  transition: opacity 1s ease, filter 1s ease, transform 1s ease;
+}
+
+.intro .hero .is-in {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+}
+
+/* título escondido até o efeito de escrita começar */
+.intro .hero h1:not(.is-typing) {
+  visibility: hidden;
+}
+
+/* cada letra do título: ocupa o espaço mas só aparece quando é "escrita" */
+.tw-c {
+  visibility: hidden;
+}
+
+.tw-c.on {
+  visibility: visible;
+}
+
+/* cursor a piscar à frente do texto (não ocupa espaço, nada salta) */
+.tw-cursor {
+  display: inline-block;
+  position: relative;
+  width: 0;
+}
+
+.tw-cursor::after {
+  content: "";
+  position: absolute;
+  left: 0.05em;
+  bottom: -0.1em;
+  width: 0.07em;
+  height: 0.9em;
+  background: var(--accent);
+  animation: tw-blink 1s steps(1) infinite;
+}
+
+.tw-cursor.typing::after {
+  animation: none; /* fixo enquanto escreve, pisca quando pára */
+}
+
+@keyframes tw-blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro .hero .eyebrow,
+  .intro .hero .lead,
+  .intro .hero .button {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+/* foto do início: ajustes para tablet e telemóveis estreitos */
+@media (min-width: 561px) and (max-width: 1000px) {
+  .hero-portrait {
+    height: 58%;
+    left: auto;
+    translate: none;
+    right: -6%;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-portrait {
+    height: 38%;
+    right: -14%;
+  }
+}
+
+/* ---------- Animação ao aparecer no ecrã (Sobre mim) ---------- */
+.js .reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s ease;
+}
+
+.js .reveal--photo {
+  transform: translateX(40px) scale(0.98);
+  transition-duration: 1.2s;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Listas de escolha modernas (formulário) ---------- */
+.cselect {
+  position: relative;
+}
+
+/* a lista original fica escondida (continua a guardar o valor) */
+.cselect-native {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cselect-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.cselect-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cselect.is-open .cselect-btn,
+.cselect-btn:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 179, 71, 0.06);
+}
+
+.cselect.is-empty .cselect-label {
+  color: #b7ada0;
+}
+
+/* ao passar o rato ou com o menu aberto, o texto fica branco (como no menu de cima) */
+.cselect-label {
+  transition: color 0.2s;
+}
+
+.cselect-btn:hover .cselect-label,
+.cselect.is-open .cselect-label,
+.cselect-btn:focus-visible .cselect-label {
+  color: var(--text);
+}
+
+.cselect-btn:hover .cselect-chev {
+  border-color: var(--text);
+}
+
+.cselect.is-invalid .cselect-btn {
+  border-color: #ff6b5a;
+}
+
+.cselect-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cselect-chev {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-right: 1.6px solid var(--muted);
+  border-bottom: 1.6px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.25s, border-color 0.2s;
+}
+
+.cselect.is-open .cselect-chev {
+  margin-top: 4px;
+  transform: rotate(-135deg);
+  border-color: var(--accent);
+}
+
+.cselect-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 0.35rem;
+  list-style: none;
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.9rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top center;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.cselect.is-open .cselect-list {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.cselect-option {
+  position: relative;
+  padding: 0.65rem 2.2rem 0.65rem 0.85rem;
+  border-radius: 0.6rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cselect-option.is-active {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.cselect-option[aria-selected="true"] {
+  color: var(--accent);
+}
+
+/* visto na opção escolhida */
+.cselect-option[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  right: 0.95rem;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  margin-top: -7px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+/* ---------- Marcação de reuniões (Cal.com) ---------- */
+.contact-right {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.book-link {
+  justify-self: start;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.book-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.contact-card.is-booking > :not(.booking) {
+  display: none;
+}
+
+.booking {
+  grid-column: 1 / -1;
+  animation: fade-in 0.4s ease;
+}
+
+.booking-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.booking-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.booking-text {
+  color: var(--muted);
+  max-width: 38rem;
+}
+
+.booking-back {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.booking-back:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.booking-cal {
+  min-height: 560px;
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+
+.booking-cal-inner {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
