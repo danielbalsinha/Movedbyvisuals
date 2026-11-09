@@ -247,10 +247,6 @@ h2 {
   animation: slide 100s linear infinite; /* mais segundos = mais lento */
 }
 
-.slideshow:hover .slideshow-track {
-  animation-play-state: paused;
-}
-
 .slideshow-group {
   display: flex;
   gap: 1rem;
@@ -377,7 +373,6 @@ h2 {
   gap: 1.5rem 3rem;
   padding: 0 0 2.2rem 4.5rem;
   color: var(--muted);
-  animation: fade-in 0.35s ease;
 }
 
 .service-body ul {
@@ -1046,4 +1041,119 @@ form button:disabled {
   width: 100%;
   height: 100%;
   overflow: auto;
+}
+
+/* ---------- Serviço em destaque (subscrição mensal) ---------- */
+.service--featured {
+  margin: 1.5rem 0 0.5rem;
+  padding: 0 clamp(1rem, 2.5vw, 2rem);
+  border: 1px solid rgba(255, 179, 71, 0.45);
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(255, 143, 0, 0.14), transparent 55%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.service--featured .service-body {
+  padding-right: 0;
+}
+
+.service-titles {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.featured-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.service--featured .service-title {
+  color: var(--text);
+}
+
+.service--featured .price-tag {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #111;
+}
+
+.service-list {
+  border-top: none;
+}
+
+.services-group {
+  margin: 2.5rem 0 0;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Testemunhos ---------- */
+.testimonial-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.testimonial {
+  display: grid;
+  gap: 1.25rem;
+  align-content: space-between;
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.testimonial blockquote {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.testimonial figcaption {
+  display: grid;
+  gap: 0.15rem;
+  font-size: 0.9rem;
+}
+
+.testimonial figcaption span {
+  color: var(--muted);
+}
+
+/* etiqueta do serviço em destaque: o texto continua legível quando está aberto */
+.service--featured[open] .price-tag {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #111;
+}
+
+/* abrir/fechar dos serviços: animado em js/main.js */
+.service-body {
+  overflow: hidden;
+}
+
+.service .plus {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s, border-color 0.3s;
+}
+
+/* ao fechar, o "×" volta logo a "+" (sem esperar pelo fim da animação) */
+.service.is-closing .plus {
+  transform: none;
+  background: none;
+  border-color: var(--border);
+  color: inherit;
+}
+
+.service:not(.service--featured).is-closing .service-title {
+  color: var(--text);
 }

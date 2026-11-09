@@ -21,18 +21,68 @@ if (showreel) {
   }).observe(showreel);
 }
 
-// Serviços: só um aberto de cada vez
+// Serviços: abrir/fechar suave, só um aberto de cada vez
 const services = document.querySelectorAll('.service');
+const reduceMotionServices = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+function animateService(service, open) {
+  const body = service.querySelector('.service-body');
+  if (!body) { service.open = open; return; }
+  if (service._anim) service._anim.cancel();
+
+  if (reduceMotionServices) { service.open = open; return; }
+
+  if (open) {
+    service.open = true;
+    const h = body.offsetHeight;
+    const pb = getComputedStyle(body).paddingBottom;
+    service._anim = body.animate(
+      [{ height: '0px', paddingBottom: '0px', opacity: 0, transform: 'translateY(-8px)' },
+       { height: `${h}px`, paddingBottom: pb, opacity: 1, transform: 'translateY(0)' }],
+      { duration: 550, easing: EASE }
+    );
+  } else {
+    const h = body.offsetHeight;
+    const pb = getComputedStyle(body).paddingBottom;
+    // fecho mais rápido e com "fill" para não haver um salto no fim
+    service._anim = body.animate(
+      [{ height: `${h}px`, paddingBottom: pb, opacity: 1 }, { height: '0px', paddingBottom: '0px', opacity: 0 }],
+      { duration: 280, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+    );
+  }
+  service.classList.toggle('is-opening', open);
+}
 
 services.forEach((service) => {
-  service.addEventListener('toggle', () => {
-    if (service.open) {
-      services.forEach((other) => {
-        if (other !== service) other.open = false;
-      });
+  const summary = service.querySelector('summary');
+  summary.addEventListener('click', (e) => {
+    e.preventDefault();
+    const willOpen = !service.open || service.classList.contains('is-closing');
+    if (willOpen) {
+      services.forEach((other) => { if (other !== service && other.open) closeService(other); });
+      service.classList.remove('is-closing');
+      animateService(service, true);
+    } else {
+      closeService(service);
     }
   });
 });
+
+function closeService(service) {
+  service.classList.add('is-closing');
+  animateService(service, false);
+  if (service._anim) {
+    const anim = service._anim;
+    anim.onfinish = () => {
+      service.open = false;
+      service.classList.remove('is-closing');
+      anim.cancel(); // tira o "fill" depois de fechado
+    };
+  } else {
+    service.classList.remove('is-closing');
+  }
+}
 
 /*
   FORMULÁRIO DE CONTACTO — Web3Forms (web3forms.com)

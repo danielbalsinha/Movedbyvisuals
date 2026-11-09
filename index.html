@@ -127,15 +127,15 @@
 
       <div class="service-list">
 
-        <details class="service">
+        <!-- SERVIÇO EM DESTAQUE (subscrição mensal) -->
+        <details class="service service--featured">
           <summary>
             <span class="num">01</span>
-            <span class="service-title" data-i18n="s1.title">Social Media Content</span>
-            <span class="price-tag" data-i18n="s1.price">Monthly subscription</span>
+            <span class="service-titles"><span class="featured-label" data-i18n="s1.label">Monthly subscription</span><span class="service-title" data-i18n="s1.title">Social Media Content</span></span>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="service-body">
-            <p data-i18n="s1.text">Short-form videos and photo sets made to stop the scroll. Planned around your brand and ready for Instagram, TikTok and Reels.</p>
+            <p data-i18n="s1.text">Every month, short videos and photos made to stop the scroll. Planned around your brand and ready to post on Instagram and TikTok.</p>
             <ul>
               <li data-i18n="s1.li1">Monthly content packs</li>
               <li data-i18n="s1.li2">Reels &amp; TikToks (vertical 9:16)</li>
@@ -145,11 +145,13 @@
           </div>
         </details>
 
+        <!-- RESTANTES SERVIÇOS: projetos pontuais -->
+        <p class="services-group" data-i18n="services.projects">Projects</p>
+
         <details class="service">
           <summary>
             <span class="num">02</span>
             <span class="service-title" data-i18n="s2.title">Video Production</span>
-            <span class="price-tag" data-i18n="s2.price">Per project</span>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="service-body">
@@ -167,7 +169,6 @@
           <summary>
             <span class="num">03</span>
             <span class="service-title" data-i18n="s3.title">Photography</span>
-            <span class="price-tag" data-i18n="s3.price">Per project</span>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="service-body">
@@ -185,7 +186,6 @@
           <summary>
             <span class="num">04</span>
             <span class="service-title" data-i18n="s4.title">Events &amp; Aftermovies</span>
-            <span class="price-tag" data-i18n="s4.price">Per project</span>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="service-body">
@@ -202,7 +202,6 @@
           <summary>
             <span class="num">05</span>
             <span class="service-title" data-i18n="s5.title">Websites</span>
-            <span class="price-tag" data-i18n="s5.price">Per project</span>
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <div class="service-body">
@@ -221,6 +220,31 @@
       <div class="services-cta">
         <p data-i18n="services.ctaText">Ready to start?</p>
         <a class="button" href="#contact" data-i18n="services.cta">Let’s talk</a>
+      </div>
+    </section>
+
+    <!-- ===================== TESTEMUNHOS =====================
+      Esta secção está ESCONDIDA até teres testemunhos reais.
+      Para a mostrar: apaga a palavra "hidden" na linha <section ... hidden> abaixo.
+      Para cada cliente: copia um bloco <figure> ... </figure> e troca o texto, o nome e o projeto.
+      Os textos ficam como o cliente os escreveu (na língua original).
+    -->
+    <section class="testimonials container" id="testimonials" hidden>
+      <p class="eyebrow" data-i18n="testi.eyebrow">Testimonials</p>
+      <h2 data-i18n="testi.title">What clients say</h2>
+      <div class="testimonial-list">
+        <figure class="testimonial">
+          <blockquote>"Texto do testemunho do cliente."</blockquote>
+          <figcaption><strong>Nome do cliente</strong><span>Empresa · Tipo de projeto</span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>"Texto do testemunho do cliente."</blockquote>
+          <figcaption><strong>Nome do cliente</strong><span>Empresa · Tipo de projeto</span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>"Texto do testemunho do cliente."</blockquote>
+          <figcaption><strong>Nome do cliente</strong><span>Empresa · Tipo de projeto</span></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -286,11 +310,11 @@
             </select>
             <select name="budget">
               <option value="" selected data-i18n="form.budget">Budget (optional)</option>
-            <option value="Under 250€" data-i18n="budget.b1">Under 250€</option>
-            <option value="250€ – 500€" data-i18n="budget.b2">250€ – 500€</option>
-            <option value="500€ – 1000€" data-i18n="budget.b3">500€ – 1000€</option>
-            <option value="Over 1000€" data-i18n="budget.b4">Over 1000€</option>
-            <option value="Not sure yet" data-i18n="budget.b5">Not sure yet</option>
+            <option value="300–600 €" data-i18n="budget.b1">€300–600</option>
+            <option value="600–1.200 €" data-i18n="budget.b2">€600–1,200</option>
+            <option value="1.200–2.500 €" data-i18n="budget.b3">€1,200–2,500</option>
+            <option value="2.500 €+" data-i18n="budget.b4">€2,500+</option>
+            <option value="Ainda não sei" data-i18n="budget.b5">Not sure yet</option>
             </select>
           </div>
           <textarea name="message" placeholder="Tell me about your project" data-i18n-placeholder="form.message" required></textarea>

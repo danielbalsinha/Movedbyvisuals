@@ -19,7 +19,7 @@ function reveal(el, delay) {
 // divide o título em letras (mantém <br> e o <em> laranja)
 function splitTitle() {
   const chars = [];
-  const fullText = title.textContent;
+  const fullText = title.innerHTML.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 
   function build(node, target) {
     node.childNodes.forEach((child) => {
