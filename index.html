@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MovedByVisuals | Video &amp; Photography</title>
   <meta name="description" content="MovedByVisuals is a video and photography studio based in Lisbon, creating films and images for brands, artists and events.">
-  <link rel="icon" href="5_bg.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +16,22 @@
   <!-- esconde o início até a animação de entrada arrancar (evita um "piscar") -->
   <script>
     document.documentElement.classList.add('intro', 'js');
-    setTimeout(function () { document.documentElement.classList.remove('intro'); }, 6000);
+    setTimeout(function () {
+      document.documentElement.classList.remove('intro');
+      var l = document.querySelector('.loader'); if (l) l.remove(); // segurança: nunca fica preso no ecrã de carregamento
+    }, 8000);
   </script>
 </head>
 <body>
+
+  <!-- ecrã de carregamento: o logo numa bola que "explode" para abrir o site (ver js/intro.js) -->
+  <div class="loader" aria-hidden="true">
+    <span class="loader-wave"></span>
+    <div class="loader-ball">
+      <img src="img/loader-logo.webp" alt="">
+      <svg class="loader-ring" viewBox="0 0 100 100"><circle class="track" cx="50" cy="50" r="48"/><circle class="arc" cx="50" cy="50" r="48"/></svg>
+    </div>
+  </div>
 
   <!-- ===================== CABEÇALHO ===================== -->
   <header class="site-header">
@@ -43,6 +55,8 @@
 
     <!-- ===================== INÍCIO (HERO) — fundo: bg_site.PNG ===================== -->
     <section class="hero">
+      <!-- fundo do início (feito em CSS, ver .hero-bg em css/style.css) -->
+      <div class="hero-bg" aria-hidden="true"><span class="hero-glow"></span></div>
       <!-- A tua foto no início (img/about-me.webp) -->
       <img class="hero-portrait" src="img/about-me.webp" alt="" aria-hidden="true">
       <div class="container">
