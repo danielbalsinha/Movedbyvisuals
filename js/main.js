@@ -275,3 +275,55 @@ window.addEventListener('resize', placePortrait);
 document.addEventListener('languagechange', () => requestAnimationFrame(placePortrait));
 if (document.fonts) document.fonts.ready.then(placePortrait);
 placePortrait();
+
+/*
+  TEXTO DO INÍCIO ("Vídeo, fotografia e conteúdo…")
+  No computador fica sempre em 2 linhas com exatamente o mesmo comprimento,
+  em PT e em EN. No telemóvel fica normal.
+*/
+function fitLead() {
+  const lead = document.querySelector('.hero .lead');
+  if (!lead) return;
+  lead.classList.remove('is-fit');
+  lead.style.width = '';
+  lead.style.maxWidth = '';
+  if (window.innerWidth <= 1000) return;
+  lead.style.maxWidth = 'none';
+
+  // larguras naturais de cada linha (texto alinhado à esquerda)
+  const lineWidths = () => {
+    const range = document.createRange();
+    range.selectNodeContents(lead);
+    const left = lead.getBoundingClientRect().left;
+    const rows = {};
+    [...range.getClientRects()].forEach((r) => {
+      if (r.width === 0) return;
+      const k = Math.round(r.top);
+      rows[k] = Math.max(rows[k] || 0, r.right - left);
+    });
+    return Object.values(rows);
+  };
+
+  lead.style.width = 'max-content';
+  const full = lead.getBoundingClientRect().width;
+  // procura a largura em que as 2 linhas ficam o mais parecidas possível
+  let best = null;
+  for (let w = Math.ceil(full / 2); w < full; w += 2) {
+    lead.style.width = `${w}px`;
+    const rows = lineWidths();
+    if (rows.length !== 2) continue;
+    const width = Math.ceil(Math.max(...rows));
+    const slack = width - Math.min(...rows);
+    if (!best || slack < best.slack) best = { width, slack };
+    if (w > full / 2 + 300) break;
+  }
+  if (!best) { lead.style.width = ''; lead.style.maxWidth = ''; return; }
+  lead.style.width = `${best.width + 1}px`;
+  lead.classList.add('is-fit');
+}
+
+window.addEventListener('load', fitLead);
+window.addEventListener('resize', fitLead);
+document.addEventListener('languagechange', () => requestAnimationFrame(() => { fitLead(); placePortrait(); }));
+if (document.fonts) document.fonts.ready.then(() => { fitLead(); placePortrait(); });
+fitLead();
