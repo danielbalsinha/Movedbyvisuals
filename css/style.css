@@ -664,6 +664,17 @@ body::before {
   color: var(--text);
 }
 
+/* texto corrido justificado: as linhas ficam todas com o mesmo comprimento (em PT e em EN).
+   A última linha de cada parágrafo fica normal; as palavras longas podem ser divididas com hífen
+   para não ficarem espaços grandes. */
+.about-text p:not(.eyebrow),
+.service-body p,
+.contact-copy {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .about-photo img {
   display: block;
   width: auto;
