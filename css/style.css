@@ -208,6 +208,18 @@ h2 {
   color: var(--accent);
 }
 
+/* gradiente muito suave dentro das letras brancas do título (o "movem" laranja não muda) */
+.hero h1 > .tw-c {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f1ec 40%, #bdb9b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* a área do gradiente é um pouco mais larga do que a letra, para não cortar
+     as partes que saem para os lados (ex: o "W" e o "e"), sem mudar o espaçamento */
+  padding: 0.1em 0.12em;
+  margin: 0 -0.12em;
+}
+
 .hero-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -220,6 +232,13 @@ h2 {
   max-width: 34rem;
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
   color: var(--muted);
+}
+
+/* no computador: 2 linhas com o mesmo comprimento (a largura é calculada em js/main.js) */
+.hero .lead.is-fit {
+  max-width: none;
+  text-align: justify;
+  text-align-last: justify;
 }
 
 .showreel {
