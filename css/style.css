@@ -1387,3 +1387,27 @@ form button:disabled {
 .service:not(.service--featured).is-closing .service-title {
   color: var(--text);
 }
+
+/* ---------- Telemóvel: o botão PT/EN fica sempre no mesmo sítio ----------
+   (em cima à direita, ao lado do logo), e os links ficam numa só linha por baixo,
+   por isso nada muda de lugar quando se troca de língua. */
+@media (max-width: 560px) {
+  .site-header {
+    position: fixed;
+  }
+
+  .lang-switch {
+    position: absolute;
+    top: 1rem;
+    right: var(--gutter);
+  }
+
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0 clamp(0.7rem, 4vw, 1.2rem);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}
+
