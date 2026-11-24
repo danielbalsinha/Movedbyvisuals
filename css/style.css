@@ -691,7 +691,7 @@ body::before {
 
 .contact-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2rem;
   /* mesma largura que as outras secções, para ficar tudo alinhado */
   max-width: calc(var(--max-width) - 2 * var(--gutter));
